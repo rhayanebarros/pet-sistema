@@ -1,0 +1,13 @@
+*.pyc
+*~
+__pycache__
+venv
+db.sqlite3
+/static
+node_modules
+dist/
+
+*.LICENSE
+yarn-error.log
+
+.DS_Store
