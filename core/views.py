@@ -4,33 +4,35 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-@login_required(login_url='/login/')
-def index(request):
-    return render(request, 'index.html')
-
-def login_user(request):
-    return render(request, 'login.html')
-
-def logout_user(request):
-    logout(request)
-    return redirect('/login/')
-
-
-@csrf_protect
-def submit_login(request):
-    if request.POST:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        print(username)
-        print(password)
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('/')
-        else:
-            messages.error(request, 'Usuário ou senha incorreta, tente novamente')
-    return redirect('/login/#')
+def home(request):
+    count = User.objects.count()
+    return render(request, 'home.html', {
+        'count': count
+    })
 
 
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {
+        'form': form
+    })
 
+
+@login_required
+def secret_page(request):
+    return render(request, 'secret_page.html')
+
+
+class SecretPage(LoginRequiredMixin, TemplateView):
+    template_name = 'secret_page.html'
