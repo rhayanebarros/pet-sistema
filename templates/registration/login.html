@@ -1,19 +1,51 @@
-{% load crispy_forms_tags %} {% block content %}
-<div class="row justify-content-center">
-  <div class="col-6">
-    <div class="card">
-      <div class="card-body">
-        <h2>Log in</h2>
-        <form method="post" novalidate>
-          {% csrf_token %}
-          {{ form | crispy }}
-          <button type="submit" class="btn btn-primary">Log in</button>
-          <a href="{% url 'password_reset' %}" class="btn btn-link"
-            >Forgot your password?</a
-          >
-        </form>
-      </div>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'scss/main.scss' %}" />
+  </head>
+  <body>
+    <div class="container mt-4 login">
+      <form action="submit" , method="POST">
+        {% csrf_token %}
+        <div class="row" style="margin-left:35%; margin-top:10%">
+          <div class="col-4">
+            <h2 class="text-center">SOS PET</h2>
+            <div class="form-group">
+              <label for="username">Usuário:</label>
+              <input
+                type="username"
+                class="form-control"
+                id="username"
+                placeholder="E-mail"
+                name="username"
+                size="10"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pwd">Senha:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="pwd"
+                placeholder="Senha"
+                name="password"
+              />
+            </div>
+            {% if messages %} {% for message in messages %}
+            <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %} {% endif %}
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <a href="{% url 'password_reset' %}" class="btn btn-link"
+              >Forgot your password?</a
+            >
+          </div>
+        </div>
+      </form>
     </div>
-  </div>
-</div>
-{% endblock %}
+  </body>
+</html>

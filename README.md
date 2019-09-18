@@ -1,3 +1,7 @@
+# Primeiro, clone este repositório na sua máquina:
+
+- git clone https://github.com/rhayanebarros/pet-sistema.git
+
 # Instalação:
 
 - Tenha o Python instalado na sua máquina
@@ -11,6 +15,7 @@
 - depois rode: import django, e depois rode: django.get_version()
 - a versão tem que ser Django==2.2.5
 - saia do ambiente python com: exit()
+- Aplique as migrações do banco: python manage.py migrate
 
 # Rodando o projeto:
 

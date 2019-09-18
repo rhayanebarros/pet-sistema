@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+@login_required
 def home(request):
     count = User.objects.count()
     return render(request, 'home.html', {
@@ -32,6 +33,19 @@ def signup(request):
 @login_required
 def secret_page(request):
     return render(request, 'secret_page.html')
+
+@csrf_protect
+def submit_login(request):
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Usuário/Senha inválidos. Favor tentar novamente.')
+    return redirect('home')
 
 
 class SecretPage(LoginRequiredMixin, TemplateView):
