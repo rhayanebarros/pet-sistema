@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'crispy_forms',
-
+    'sass_processor',
     'login',
 ]
 
@@ -120,6 +120,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
+# Django Sass
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR,'static')
+...
 
 STATIC_URL = '/static/'
 
