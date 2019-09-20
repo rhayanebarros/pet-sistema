@@ -1,40 +1,55 @@
-{% extends 'base.html' %} {% block content %}
-<div class="container mt-4 login">
-  <form action="submit" , method="POST">
-    {% csrf_token %}
-    <div class="row">
-      <div class="col-4">
-        <h2>Sistema</h2>
-        <div class="form-group">
-          <label for="username">Usuário:</label>
-          <input
-            type="username"
-            class="form-control"
-            id="username"
-            placeholder="E-mail"
-            name="username"
-            size="10"
-          />
-        </div>
-        <div class="form-group">
-          <label for="pwd">Senha:</label>
-          <input
-            type="password"
-            class="form-control"
-            id="pwd"
-            placeholder="Senha"
-            name="password"
-          />
-        </div>
-        {% if messages %} {% for message in messages %}
-        <div class="alert alert-danger">{{ message }}</div>
-        {% endfor %} {% endif %}
-        <button type="submit" class="btn btn-primary">Entrar</button>
-        <a href="{% url 'password_reset' %}" class="btn btn-link"
-          >Forgot your password?</a
-        >
-      </div>
+{% load sass_tags %} {% block links %}
+<link href="{% sass_src 'scss/main.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %} {% block content %}
+<div class="bg-login">
+  <div class="login">
+    <div class="col-left">
+      <img
+        class="img-login"
+        src="../../static/imagens/fundo-beecode.png"
+        alt=""
+      />
     </div>
-  </form>
+    <div class="col-right">
+      <form action="submit" , method="POST">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-4">
+            <h2>LOGIN</h2>
+            <div class="form-group">
+              <img src="../../static/imagens/icon-user.png" alt="" />
+              <label for="username"></label>
+              <input
+                type="username"
+                class="form-control"
+                id="username"
+                placeholder="Usuário"
+                name="username"
+                size="10"
+              />
+            </div>
+            <div class="form-group">
+              <img src="../../static/imagens/icon-password.png" alt="" />
+              <label for="pwd"></label>
+              <input
+                type="password"
+                class="form-control"
+                id="pwd"
+                placeholder="Senha"
+                name="password"
+              />
+            </div>
+            {% if messages %} {% for message in messages %}
+            <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %} {% endif %}
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <a href="{% url 'password_reset' %}" class="btn btn-link"
+              >Forgot your password?</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 {% endblock %}
