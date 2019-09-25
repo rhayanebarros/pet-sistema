@@ -15,17 +15,17 @@
   left: 0;
   right: 0;
   margin: auto;
-}
 
-.col-left,
-.col-right {
-  display: inline-flex;
-  vertical-align: top;
-}
+  .col-left,
+  .col-right {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-.col-right {
-  width: 59%;
-  justify-content: center;
+  .col-right {
+    width: 59%;
+    justify-content: center;
+  }
 
   h2 {
     font-size: 40px;
@@ -37,28 +37,130 @@
     margin-top: 60px;
   }
 
-  .form-group {
-    margin-top: 20px;
+  .form {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+  }
 
-    img {
-      display: inline-block;
-      vertical-align: bottom;
+  img {
+    vertical-align: bottom;
+  }
+
+  .img {
+    display: inline-block;
+    vertical-align: bottom;
+    border-bottom: 1px solid #757575;
+  }
+
+  .img-login {
+    margin-top: -1px;
+  }
+
+  .group {
+    position: relative;
+    margin-bottom: 45px;
+  }
+  .input {
+    font-size: 18px;
+    display: inline-block;
+    width: 280px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    margin-left: -5px;
+    padding-left: 8px;
+  }
+  .input:focus {
+    outline: none;
+  }
+
+  /* LABEL ======================================= */
+  label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  /* active state */
+  .input:focus ~ label,
+  .input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264ae;
+  }
+
+  /* BOTTOM BARS ================================= */
+  .bar {
+    position: relative;
+    display: block;
+    width: 302px;
+  }
+  .bar:before,
+  .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #efc230;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  .bar:before {
+    left: 50%;
+  }
+  .bar:after {
+    right: 50%;
+  }
+
+  /* active state */
+  .input:focus ~ .bar:before,
+  .input:focus ~ .bar:after {
+    width: 50%;
+  }
+
+  /* active state */
+  .input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+  }
+
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+    from {
+      background: #5264ae;
+    }
+    to {
+      width: 0;
+      background: transparent;
     }
   }
-
-  .btn-primary {
-    display: block;
-    margin: 20px auto 0;
+  @-moz-keyframes inputHighlighter {
+    from {
+      background: #5264ae;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
   }
-
-  .btn-link {
-    display: block;
-    margin: 20px auto 0;
-    text-decoration: none;
-    text-align: center;
+  @keyframes inputHighlighter {
+    from {
+      background: #5264ae;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
   }
-}
-
-.img-login {
-  margin-top: -1px;
 }

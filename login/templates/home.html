@@ -1,4 +1,12 @@
-{% extends 'base.html' %} {% block content %}
+{% extends "base.html" %} 
+
+{% block nav %}
+  {% include "nav.html" %}
+{% endblock %}
+
+
+{% block content %}
+
 <h2>Homepage</h2>
 <p>
   Welcome to My Site, {% if user.is_authenticated %}{{ user.username }}{% else
