@@ -44,7 +44,7 @@ def submit_login(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Usuário/Senha inválidos. Favor tentar novamente.')
+            messages.error(request, 'Usuário/Senha inválido. Tente novamente.')
     return redirect('home')
 
 

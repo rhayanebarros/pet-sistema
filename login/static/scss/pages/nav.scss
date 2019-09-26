@@ -1,0 +1,64 @@
+.nav {
+  align-items: center;
+  background: url("../imagens/bg-login.jpg");
+  position: relative;
+
+  .logo {
+    background-color: #fff;
+    padding: 35px;
+    box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .config {
+    position: absolute;
+    right: 240px;
+  }
+
+  .nav-tabs {
+    border: none;
+    background: transparent;
+  }
+
+  .nav-tabs .nav-link {
+    border: none;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #fff;
+  }
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: transparent;
+  }
+
+  .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.1);
+    min-width: 0;
+    left: -16px !important;
+  }
+
+  .dropdown-item {
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  .dropdown-item:hover {
+    background-color: transparent;
+    text-decoration: underline;
+  }
+}
+
+.nav-vertical {
+  position: fixed;
+  height: 100vh;
+  background: #fff;
+  width: 264px;
+  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.1);
+  .nav {
+    align-items: baseline;
+    background: #fff;
+  }
+}

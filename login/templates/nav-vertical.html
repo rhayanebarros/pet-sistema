@@ -1,0 +1,23 @@
+{% load sass_tags %} 
+
+{% load static %}
+
+{% block nav %}
+
+
+<div class="nav-vertical">
+        <ul class="nav flex-column">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'home' %}">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{% url 'secret' %}">Secret Page</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{% url 'secret2' %}">Secret Page 2</a>
+                </li>
+                {% endif %}
+              </ul>
+</div>
+{% endblock %}

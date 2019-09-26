@@ -25,12 +25,16 @@
       rel="stylesheet"
       type="text/css"
     />
+    
 
     <title>{% block title %}Beecode{% endblock %}</title>
   </head>
   <body>
     <nav>
       {% block nav %} {% endblock %}
+    </nav>
+    <nav>
+      {% block aside %} {% endblock %}
     </nav>
     <div>
       {% block content %} {% endblock %}

@@ -17,8 +17,8 @@
           {% csrf_token %}
           <div class="group">
             <div class="img">
-            <img class="user" src="{% static 'imagens/icon-user.png' %}" />
-          </div>
+              <img class="user" src="{% static 'imagens/icon-user.png' %}" />
+            </div>
             <input
               type="username"
               id="username"
@@ -26,32 +26,31 @@
               name="username"
               size="10"
               class="input"
-            />
-            
+            />            
             <span class="bar"></span>
             <label for="username"></label>
           </div>
           <div class="group">
             <div class="img">
-            <img class="user" src="{% static 'imagens/icon-password.png' %}" />
-          </div>
+              <img class="user" src="{% static 'imagens/icon-password.png' %}" />
+            </div>
             <input
               type="password"
               id="pwd"
               placeholder="Senha"
               name="password"
               class="input"
-            />
-            
+            />            
             <span class="bar"></span>
             <label for="pwd"></label>            
           </div>
           {% if messages %} {% for message in messages %}
-          <div class="">{{ message }}</div>
+          <div class="error-login">{{ message }}</div>
           {% endfor %} {% endif %}
-          <button type="submit" class="btn btn-primary">Entrar</button>
-          <a href="{% url 'password_reset' %}" class="btn btn-link"
-            >Forgot your password?</a
+          <button type="submit" class="button btn-login">Entrar</button>
+          <hr>
+          <a href="{% url 'password_reset' %}" class="btn-psw"
+            >Esqueci minha senha</a
           >
         </form>
       </div>

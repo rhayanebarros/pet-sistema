@@ -1,7 +1,8 @@
 body {
-  background-color: #e4ab65;
+  background-color: #fed767;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow-x: hidden; }
 
 .container {
   width: 100%;
@@ -46,28 +47,6 @@ p {
 ul {
   list-style: none; }
 
-.button {
-  padding: 18px 10px;
-  width: 100%;
-  max-width: 261px;
-  display: block;
-  border-radius: 8px;
-  background-color: #ffec35;
-  font-size: 18px;
-  font-family: "FrutigerLTStd-Bold", Arial, sans-serif;
-  line-height: 19px;
-  text-align: center;
-  color: #ff4366;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 3px -3px 16px 0 rgba(255, 236, 53, 0.6);
-  text-transform: uppercase;
-  text-decoration: none; }
-  .button:hover {
-    background-color: #ff4366;
-    box-shadow: 3px -3px 16px 0 #ff4366;
-    color: #ffec35; }
-
 .bg-login {
   background: url("../imagens/bg-login.jpg");
   height: 100vh;
@@ -109,13 +88,14 @@ ul {
     display: inline-flex;
     justify-content: center;
     margin-top: 30px;
-    width: 100%; }
+    width: 100%;
+    position: relative; }
   .login img {
     vertical-align: bottom; }
   .login .img {
     display: inline-block;
     vertical-align: bottom;
-    border-bottom: 1px solid #757575; }
+    border-bottom: 2px solid #5f5d5e; }
   .login .img-login {
     margin-top: -1px; }
   .login .group {
@@ -126,13 +106,53 @@ ul {
     display: inline-block;
     width: 280px;
     border: none;
-    border-bottom: 1px solid #757575;
+    border-bottom: 2px solid #5f5d5e;
     margin-left: -5px;
-    padding-left: 8px; }
+    padding-left: 20px; }
   .login .input:focus {
     outline: none; }
+  .login .error-login {
+    width: 100%;
+    max-width: 295px;
+    position: absolute;
+    bottom: 150px;
+    color: red;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400; }
+  .login .button {
+    padding: 14px 10px;
+    width: 100%;
+    max-width: 180px;
+    display: block;
+    border-radius: 30px;
+    background-color: #efc52e;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    line-height: 19px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 3px -3px 16px 0 rgba(255, 236, 53, 0.6);
+    border: none;
+    text-decoration: none;
+    margin: 0 auto; }
+    .login .button:hover {
+      background-color: #fedb75; }
+  .login hr {
+    border: 1px solid #5f5d5e;
+    margin: 30px 0; }
+  .login .btn-psw {
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #5f5d5e;
+    display: block;
+    text-align: center; }
   .login label {
-    color: #999;
+    color: #5f5d5e;
     font-size: 18px;
     font-weight: normal;
     position: absolute;
@@ -194,5 +214,113 @@ ul {
   to {
     width: 0;
     background: transparent; } }
+
+.reset .img-logo {
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px; }
+  .reset .img-logo .img-reset {
+    width: 50px; }
+
+.reset .form-reset .control-group {
+  display: inline-flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%; }
+
+.reset .form-reset .error {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: red; }
+
+.reset .form-reset .btn-reset {
+  max-width: 280px;
+  margin-top: 30px; }
+
+.reset .form-reset label {
+  position: unset;
+  padding-right: 5px; }
+
+.reset .form-reset .emailinput {
+  width: 280px;
+  border: none;
+  border-bottom: 2px solid #5f5d5e; }
+
+.reset-done {
+  display: flex;
+  justify-content: center; }
+  .reset-done .img-logo {
+    margin: 60px auto;
+    text-align: center; }
+  .reset-done p {
+    text-align: center;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px; }
+
+.alterar-senha-sucesso {
+  text-align: center;
+  margin-top: 60px; }
+  .alterar-senha-sucesso p {
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin-top: 20px; }
+
+.nav {
+  align-items: center;
+  background: url("../imagens/bg-login.jpg");
+  position: relative; }
+  .nav .logo {
+    background-color: #fff;
+    padding: 35px;
+    box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.1); }
+  .nav .config {
+    position: absolute;
+    right: 240px; }
+  .nav .nav-tabs {
+    border: none;
+    background: transparent; }
+  .nav .nav-tabs .nav-link {
+    border: none;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #fff; }
+  .nav .nav-tabs .nav-item.show .nav-link,
+  .nav .nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: transparent; }
+  .nav .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.1);
+    min-width: 0;
+    left: -16px !important; }
+  .nav .dropdown-item {
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #fff; }
+  .nav .dropdown-item:hover {
+    background-color: transparent;
+    text-decoration: underline; }
+
+.nav-vertical {
+  position: fixed;
+  height: 100vh;
+  background: #fff;
+  width: 264px;
+  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.1); }
+  .nav-vertical .nav {
+    align-items: baseline;
+    background: #fff; }
+
+.home {
+  position: relative;
+  width: 100%;
+  margin: 0 0 0 auto;
+  max-width: calc(100% - 267px); }
 
 /*# sourceMappingURL=main.css.map */

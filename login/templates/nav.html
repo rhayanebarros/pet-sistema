@@ -1,58 +1,40 @@
+{% load sass_tags %} 
+
+{% load static %}
+
 {% block nav %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">My Site</a>
-        <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        >
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'secret' %}">Secret Page</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'secret2' %}">Secret Page 2</a>
-            </li>
-            {% endif %}
-        </ul>
+    <div class="nav">
+        <div class="logo">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img class="user" src="{% static 'imagens/logo.png' %}" />
+            </a>
+        </div>
+        <div class="config">
         {% if user.is_authenticated %}
-        <ul class="navbar-nav">
+        <ul class="nav nav-tabs">
             <li class="nav-item dropdown">
             <a
                 class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
                 data-toggle="dropdown"
+                href="#"                
+                role="button"                
                 aria-haspopup="true"
                 aria-expanded="false"
             >
-                {{ user.username }}
+                {{ user.username }} | Pet Shop
             </a>
             <div
                 class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="navbarDropdown"
             >
-                <a class="dropdown-item" href="{% url 'signup' %}">Sign up</a>
+                <a class="dropdown-item" href="{% url 'signup' %}">Novo Usuário</a>
 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'password_change' %}"
-                >Change password</a
+                >Alterar Senha</a
                 >
 
-                <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
             </div>
             </li>
         </ul>
@@ -65,5 +47,20 @@
         {% endif %}
         </div>
     </div>
-    </nav>
+
+    <!-- <div class="nav-vertical">
+            <ul class="nav flex-column">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'home' %}">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="{% url 'secret' %}">Secret Page</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="{% url 'secret2' %}">Secret Page 2</a>
+                    </li>
+                    {% endif %}
+                  </ul>
+    </div> -->
 {% endblock %}
