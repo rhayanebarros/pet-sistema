@@ -1,5 +1,5 @@
 body {
-  background-color: #fed767;
+  background-color: #f3f5f7;
   margin: 0;
   padding: 0;
   overflow-x: hidden; }
@@ -273,17 +273,20 @@ ul {
 .nav {
   align-items: center;
   background: url("../imagens/bg-login.jpg");
-  position: relative; }
+  position: relative;
+  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.1); }
   .nav .logo {
     background-color: #fff;
     padding: 35px;
-    box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.1); }
+    box-shadow: 8px 0px 8px -10px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid #e6e6e6; }
   .nav .config {
     position: absolute;
     right: 240px; }
   .nav .nav-tabs {
     border: none;
-    background: transparent; }
+    background: transparent;
+    box-shadow: none; }
   .nav .nav-tabs .nav-link {
     border: none;
     font-size: 18px;
@@ -295,14 +298,15 @@ ul {
     color: #fff;
     background-color: transparent; }
   .nav .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffd566;
     min-width: 0;
     left: -16px !important; }
   .nav .dropdown-item {
     font-size: 14px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    color: #fff; }
+    color: #fff;
+    background-clip: border-box; }
   .nav .dropdown-item:hover {
     background-color: transparent;
     text-decoration: underline; }
@@ -312,10 +316,23 @@ ul {
   height: 100vh;
   background: #fff;
   width: 264px;
-  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.1); }
+  box-shadow: 8px 0px 8px -10px rgba(0, 0, 0, 0.25); }
   .nav-vertical .nav {
     align-items: baseline;
-    background: #fff; }
+    background: #fff;
+    box-shadow: none;
+    margin-top: 60px;
+    padding-left: 20px; }
+  .nav-vertical .nav:hover {
+    background: #e6e8ea; }
+  .nav-vertical .nav-item .nav-link {
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #5f5d5e; }
+    .nav-vertical .nav-item .nav-link .img-cadastro {
+      padding-right: 10px;
+      padding-bottom: 6px; }
 
 .home {
   position: relative;

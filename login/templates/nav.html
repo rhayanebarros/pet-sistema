@@ -1,66 +1,50 @@
 {% load sass_tags %} 
 
-{% load static %}
+{% load static %} 
 
 {% block nav %}
-    <div class="nav">
-        <div class="logo">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <img class="user" src="{% static 'imagens/logo.png' %}" />
-            </a>
+<div class="nav">
+  <div class="logo">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img class="user" src="{% static 'imagens/logo.png' %}" />
+    </a>
+  </div>
+  <div class="config">
+    {% if user.is_authenticated %}
+    <ul class="nav nav-tabs">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+          href="#"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ user.username }} | Pet Shop
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-right"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item" href="{% url 'signup' %}">Novo Usuário</a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'password_change' %}"
+            >Alterar Senha</a
+          >
+
+          <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
         </div>
-        <div class="config">
-        {% if user.is_authenticated %}
-        <ul class="nav nav-tabs">
-            <li class="nav-item dropdown">
-            <a
-                class="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"                
-                role="button"                
-                aria-haspopup="true"
-                aria-expanded="false"
-            >
-                {{ user.username }} | Pet Shop
-            </a>
-            <div
-                class="dropdown-menu dropdown-menu-right"
-                aria-labelledby="navbarDropdown"
-            >
-                <a class="dropdown-item" href="{% url 'signup' %}">Novo Usuário</a>
-
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'password_change' %}"
-                >Alterar Senha</a
-                >
-
-                <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
-            </div>
-            </li>
-        </ul>
-        {% else %}
-        <!-- <form class="form-inline my-2 my-lg-0">
+      </li>
+    </ul>
+    {% else %}
+    <!-- <form class="form-inline my-2 my-lg-0">
                         <a href="{% url 'login' %}" class="btn btn-outline-secondary"
                         >Log in</a
                         >
                     </form> -->
-        {% endif %}
-        </div>
-    </div>
-
-    <!-- <div class="nav-vertical">
-            <ul class="nav flex-column">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                      <a class="nav-link" href="{% url 'home' %}">Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="{% url 'secret' %}">Secret Page</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="{% url 'secret2' %}">Secret Page 2</a>
-                    </li>
-                    {% endif %}
-                  </ul>
-    </div> -->
+    {% endif %}
+  </div>
+</div>
 {% endblock %}
