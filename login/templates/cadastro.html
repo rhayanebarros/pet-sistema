@@ -1,31 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load crispy_forms_tags %} 
+{% load crispy_forms_tags %}
 
 {% block nav %}
-  {% include "nav.html" %}
+{% include "nav.html" %}
 {% endblock %}
 
-{% block aside %} 
-  {% include "nav-vertical.html" %}
+{% block aside %}
+{% include "nav-vertical.html" %}
 {% endblock %}
 
 {% block content %}
 <div class="home">
-    <p>CADASTRO</p>
+  <div class="cadastro">
+    <div class="form-group input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+      <input name="consulta" id="txt_consulta" placeholder="Pesquisar" type="text" class="form-control">
+    </div>
 
- <div class="form-group input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-  <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
- </div>
-
- <a class="" href="{% url 'form' %}">Incluir</a>
+    <a class="btn-incluir" href="{% url 'form' %}"><img class="img-incluir"
+        src="{% static 'imagens/icon-incluir.png' %}" />Incluir</a>
     <!-- <form method="post" novalidate id="form">
-        {% csrf_token %}
-        {{ form | crispy }}
-        <button type="submit" class="btn btn-primary">Adicionar</button>
-    </form> -->
-    
-    
+          {% csrf_token %}
+          {{ form | crispy }}
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+      </form> -->
+  </div>
 </div>
 {% endblock %}

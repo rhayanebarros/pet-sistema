@@ -1,20 +1,28 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load static %}
 
-{% block nav %} 
-  {% include "nav.html" %} 
-{% endblock %} 
+{% block nav %}
+{% include "nav.html" %}
+{% endblock %}
 
-{% block aside %} 
-  {% include "nav-vertical.html" %}
-{% endblock %} 
+{% block aside %}
+{% include "nav-vertical.html" %}
+{% endblock %}
 
 {% block content %}
 <div class="home">
-  
-  <p>
+  <div class="dash">
+    <div class="dash-clientes">
+      <img class="" src="{% static 'imagens/dash-clientes.png' %}" />
+      <p class="text-clientes">Clientes Registrados</p>
+      <p class="text-clientes-count">{{ count }}</p>
+    </div>
+    <img class="" src="{% static 'imagens/dash-animais.png' %}" />
+  </div>
+  <!-- <p>
     Bem Vindo {% if user.is_authenticated %}{{ user.username }}{% else %} visitor {% endif %}!
-  </p>
-  <p><strong>Clientes registrados: </strong> {{ count }}</p>
+  </p> -->
+
   <!-- <p><strong>Total contas registered: </strong> {{ count }}</p> -->
 </div>
 {% endblock %}
